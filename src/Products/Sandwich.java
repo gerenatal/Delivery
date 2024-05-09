@@ -6,7 +6,7 @@ public class Sandwich extends Product {
     }
 
     @Override
-    public void giftMessage(){
-        System.out.println("You get a hoodie as a gift!");
+    public String giftMessage(){
+        return "You get a hoodie as a gift!";
     }
 }

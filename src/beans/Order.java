@@ -1,8 +1,7 @@
 package beans;
 
-import DeliveryMode.DeliveryMode;
+import DeliveryMode.*;
 import Products.Product;
-
 import java.util.List;
 
 public class Order {
@@ -72,11 +71,11 @@ public class Order {
         sb.append("Products:\n");
         for (Product product : products) {
             sb.append("- ").append(product.getName()).append(": ").append(product.getQuantity()).append(" units\n");
-            product.giftMessage();
+            sb.append(product.giftMessage()).append("\n");
         }
         sb.append("Delivery Guy: ").append(deliveryGuy).append("\n");
         sb.append("Delivery Mode: ").append(deliveryMode.getClass().getSimpleName()).append("\n");
-        sb.append("Total Price: $").append(String.format("%.2f", finalPrice));
+        sb.append("Total Price: $").append(String.format("%.2f", finalPrice)).append("\n");
         return sb.toString();
     }
 }

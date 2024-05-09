@@ -4,7 +4,7 @@ public class Burrito extends Product {
         super("burrito", 6.5);
     }
     @Override
-    public void giftMessage(){
-        System.out.println("You get a pin as a gift!");
+    public String giftMessage(){
+        return "You get a pin as a gift!";
     }
 }

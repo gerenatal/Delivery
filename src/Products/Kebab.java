@@ -4,5 +4,7 @@ public class Kebab extends Product{
         super("kebab", 4.5);
     }
     @Override
-    public void giftMessage(){}
+    public String giftMessage(){
+        return "";
+    }
 }

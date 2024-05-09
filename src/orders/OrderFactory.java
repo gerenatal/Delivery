@@ -48,7 +48,11 @@ public class OrderFactory {
                     addOrUpdateProduct(products, new Pizza());
                     break;
                 case "5":
-                    exit = true;
+                    if(products.isEmpty()){
+                        System.out.println("Order cannot be empty!");
+                    }else{
+                        exit = true;
+                    }
                     break;
                 default:
                     System.out.println("Invalid choice. Please enter a valid option.");
@@ -61,6 +65,7 @@ public class OrderFactory {
         for (Product product : products) {
             if (product.getName().equals(newProduct.getName())) {
                 product.setQuantity(product.getQuantity() + 1);
+                return;
             }
         }
         products.add(newProduct);

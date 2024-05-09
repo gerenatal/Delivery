@@ -1,5 +1,5 @@
 package orders;
-
+import DeliveryMode.*;
 import Exceptions.NoIdFoundException;
 import beans.Order;
 import java.util.ArrayList;
@@ -26,6 +26,9 @@ public class OrdersList implements Lists {
                 if (order.getId() == id) {
                     order.setDeliveredStatus(true);
                     System.out.println("Order marked as delivered.");
+                    String deliveryGuyName = order.getDeliveryGuy();
+                    DeliveryGuy deliveryGuy = DeliveryGuy.valueOf(deliveryGuyName.toUpperCase());
+                    deliveryGuy.setAvailable(true);
                     return;
                 }
             }

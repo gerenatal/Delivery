@@ -10,7 +10,7 @@ public abstract class Product {
         quantity = 1;
     }
 
-    public abstract void giftMessage();
+    public abstract String giftMessage();
 
     public String getName() {
         return name;

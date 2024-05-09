@@ -1,15 +1,13 @@
 package DeliveryMode;
-
 import Exceptions.NoDeliveryGuyAvailableException;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public enum DeliveryGuy {
-    EMPLOYEE1("Marcos", true),
-    EMPLOYEE2("Claudio", true),
-    EMPLOYEE3("Monica", true);
+    MARCOS("Marcos", true),
+    CLAUDIO("Claudio", true),
+    MONICA("Monica", true);
 
     private String name;
     private boolean available;
@@ -57,6 +55,4 @@ public enum DeliveryGuy {
         }
         throw new NoDeliveryGuyAvailableException("No delivery guy available.");
     }
-
-
 }

@@ -1,4 +1,5 @@
 import DeliveryMode.DeliveryGuy;
+import Exceptions.NoDeliveryGuyAvailableException;
 import orders.OrderFactory;
 import orders.OrdersList;
 import java.util.Scanner;
@@ -10,7 +11,6 @@ public class Menu {
     }
 
     public void menuLoop() {
-        OrderFactory orderFactory = new OrderFactory();
         boolean exit = false;
         while (!exit) {
             String choice = lineInput("""
@@ -22,13 +22,15 @@ public class Menu {
                     5. Exit""");
             switch (choice) {
                 case "1":
-                    ordersList.addOrder(OrderFactory.makeOrder(DeliveryGuy.selectRandomAvailable()));
-                    //add new order
-                    //now set the "available" correspondent deliveryGuy that is busy with the order just created to false
+                    DeliveryGuy selectedDeliveryGuy = DeliveryGuy.selectRandomAvailable();
+                    if(selectedDeliveryGuy != null){
+                        ordersList.addOrder(OrderFactory.makeOrder(selectedDeliveryGuy));
+                        selectedDeliveryGuy.setAvailable(false);
+                    }
                     break;
                 case "2":
                     int id = intInput("Insert order ID:");
-                    //Implement update ongoing order to delivered
+                    ordersList.setAsDelivered(id);
                     break;
                 case "3":
                     ordersList.listOngoingOrders();

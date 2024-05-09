@@ -4,5 +4,7 @@ public class Pizza extends Product{
         super("pizza", 7.9);
     }
     @Override
-    public void giftMessage(){}
+    public String giftMessage(){
+        return "";
+    }
 }
